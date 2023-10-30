@@ -12,6 +12,7 @@ namespace CoffeeBarV3
         private Decimal mPrice;
         private uint mStockLevel;
 
+
         #region Constructors
         /// <summary>
         /// Creates an item having a specific price and name

@@ -41,6 +41,10 @@
             this.uiDepositTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.uiLastItemTextbox = new System.Windows.Forms.TextBox();
+            this.DisplayAllOrders = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.uiDisplayOrdersTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // uiCustomerCombo
@@ -157,11 +161,38 @@
             this.uiLastItemTextbox.Size = new System.Drawing.Size(100, 20);
             this.uiLastItemTextbox.TabIndex = 11;
             // 
+            // DisplayAllOrders
+            // 
+            this.DisplayAllOrders.Location = new System.Drawing.Point(46, 241);
+            this.DisplayAllOrders.Name = "DisplayAllOrders";
+            this.DisplayAllOrders.Size = new System.Drawing.Size(115, 23);
+            this.DisplayAllOrders.TabIndex = 13;
+            this.DisplayAllOrders.Text = "Display All Orders";
+            this.DisplayAllOrders.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(0, 0);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 14;
+            // 
+            // uiDisplayOrdersTextBox
+            // 
+            this.uiDisplayOrdersTextBox.Location = new System.Drawing.Point(43, 270);
+            this.uiDisplayOrdersTextBox.Multiline = true;
+            this.uiDisplayOrdersTextBox.Name = "uiDisplayOrdersTextBox";
+            this.uiDisplayOrdersTextBox.Size = new System.Drawing.Size(161, 81);
+            this.uiDisplayOrdersTextBox.TabIndex = 15;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(668, 241);
+            this.ClientSize = new System.Drawing.Size(713, 442);
+            this.Controls.Add(this.uiDisplayOrdersTextBox);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.DisplayAllOrders);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.uiLastItemTextbox);
             this.Controls.Add(this.uiDepositTextBox);
@@ -198,6 +229,10 @@
         private System.Windows.Forms.TextBox uiDepositTextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox uiLastItemTextbox;
+        private System.Windows.Forms.Button DisplayAllOrders;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox uiDisplayOrdersTextBox;
     }
 }
 

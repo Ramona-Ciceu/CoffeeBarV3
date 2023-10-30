@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoffeeBarV2;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,14 +14,20 @@ namespace CoffeeBarV3
     public partial class Form1 : Form
     {
         // Declararions
-        Person mDave;
-        Person mHannan;
-        Person mCurrentPerson;
-        Person[] mPeople = new Person[5];
-        int mCurrentPersonIndex = 0;
+       // Person mDave;
+        //Person mHannan;
+       // Person mCurrentPerson;
+       // Person[] mPeople = new Person[5];
+       //int mCurrentPersonIndex = 0;
 
         List<Item> mItems = new List<Item>();
         Item mCurrentItem;
+
+        List<Person> mPersons = new List<Person>();
+        Person mCurrentPerson;
+
+        List<Order> mOrders = new List<Order>();
+        Order mCurrentOrder;
 
         #region UI Initialisation
         /// <summary>
@@ -52,20 +59,43 @@ namespace CoffeeBarV3
             ShowCurrentItem();
 
 
-            mDave = new Person("Dave", 12.0m);
-            mHannan = new Person("Hannan", 20.0m);
-            mPeople[0] = mDave;
-            mCurrentPersonIndex++;
-            mPeople[1] = mHannan;
-            mCurrentPersonIndex++;
-            for (int personLoop = 0; personLoop < mCurrentPersonIndex; personLoop++)
+            Person newPerson;
+            newPerson = new Person("Dave", 12.0m);
+            //mDave = new Person("Dave", 12.0m);
+            mPersons.Add(newPerson);
+            // mHannan = new Person("Hannan", 20.0m);
+            newPerson = new Person("Hannah", 20.0m);
+            mPersons.Add(newPerson);
+
+
+
+            //mPeople[0] = mDave;
+             //mPersons[0] = mDave;
+             //mPersons[1] = mHannan;
+           // mCurrentPerson;
+           /* for (int personLoop = 0; personLoop < mCurrentPerson; personLoop++)
             {
-                uiCustomerCombo.Items.Add(mPeople[personLoop].Name);
+                uiCustomerCombo.Items.Add(mPersons[personLoop].Name);
             }
             uiCustomerCombo.SelectedIndex = 0;
-            mCurrentPerson = mDave;
+           // mCurrentPerson = mDave;
+            mCurrentPerson = mPersons[0];
+           */
 
-            ShowCurrentPerson();
+            foreach (Person  i in mPersons)
+            {
+                uiCustomerCombo.Items.Add(i.Name);
+            }
+            uiCustomerCombo.SelectedIndex = 0;
+            mCurrentPerson = mPersons[0];
+            ShowCurrentPerson() ;
+
+
+
+            Order newOrder;
+
+            newOrder = new Order("Dave", 12.0m);
+            
         }
         #endregion
 
@@ -77,10 +107,10 @@ namespace CoffeeBarV3
         /// <param name="e">Event Arguments passed</param>
         private void uiCustomerCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (uiCustomerCombo.SelectedIndex < mCurrentPersonIndex)
-            {
-                mCurrentPerson = mPeople[uiCustomerCombo.SelectedIndex];
-            }
+            //if (uiCustomerCombo.SelectedIndex < mCurrentPerson)
+            
+                mCurrentPerson = mPersons[uiCustomerCombo.SelectedIndex];
+            
             ShowCurrentPerson();
         }
 
