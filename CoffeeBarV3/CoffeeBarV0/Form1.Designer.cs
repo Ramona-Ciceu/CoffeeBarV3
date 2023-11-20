@@ -193,9 +193,9 @@
             this.groupBox1.Controls.Add(this.uiAddItemTextBox);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Location = new System.Drawing.Point(277, 193);
+            this.groupBox1.Location = new System.Drawing.Point(340, 196);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(424, 129);
+            this.groupBox1.Size = new System.Drawing.Size(361, 126);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Item";
@@ -224,16 +224,16 @@
             // 
             // uiAddItemTextBox
             // 
-            this.uiAddItemTextBox.Location = new System.Drawing.Point(90, 32);
+            this.uiAddItemTextBox.Location = new System.Drawing.Point(65, 28);
             this.uiAddItemTextBox.Name = "uiAddItemTextBox";
-            this.uiAddItemTextBox.Size = new System.Drawing.Size(301, 20);
+            this.uiAddItemTextBox.Size = new System.Drawing.Size(178, 20);
             this.uiAddItemTextBox.TabIndex = 2;
             // 
             // uiAddPriceTextBox
             // 
-            this.uiAddPriceTextBox.Location = new System.Drawing.Point(93, 66);
+            this.uiAddPriceTextBox.Location = new System.Drawing.Point(65, 62);
             this.uiAddPriceTextBox.Name = "uiAddPriceTextBox";
-            this.uiAddPriceTextBox.Size = new System.Drawing.Size(298, 20);
+            this.uiAddPriceTextBox.Size = new System.Drawing.Size(213, 20);
             this.uiAddPriceTextBox.TabIndex = 3;
             // 
             // uiAddItemButton
