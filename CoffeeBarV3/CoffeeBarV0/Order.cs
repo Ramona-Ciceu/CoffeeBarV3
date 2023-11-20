@@ -10,32 +10,56 @@ namespace CoffeeBarV2
     public class Order
     {
 
-        //Attributes
-        DateTime date = DateTime.UtcNow;
-        Item mItem;
-        Person mPerson;
+        //Making sure each order has a uniue number
+        static int mOrderNumber = 1;
 
 
-        //Property
-        //Name of the order
-        public String OrderName { get; set; }
+        //Properties
+        
+
+        /// <summary>
+        /// Date and time of order made
+        /// </summary>
+        
+        public DateTime DateandTime { get; }
 
 
+        /// <summary>
+        /// the Item purchased on the order
+        /// </summary>
+
+        public Item Item { get;  }
+
+        //The customer that made the order
+
+        public Person Person { get; }
+
+        public int OrderNumber { get; }
 
 
         // Constructor
-        public Order (string date , Item Name, Person PName  )
+
+        /// <summary>
+        /// Constructor including th eitme and the perosn that raised the order
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="Name"></param>
+        /// <param name="PName"></param>
+        public Order (Item item, Person person  )
         {
 
-           mItem = Name; 
-           mPerson = PName;
+           Item = item; 
+           Person = person;
+            DateandTime = DateTime.Now; 
+            OrderNumber = mOrderNumber++;
         }
 
         //Methods
-        /*public bool  DisplayOrder( string OrderName )
+        public string  OrderDescription()
         {
+            return $"Order No: {OrderNumber} | Customer : {Person.Name} | Item {Item.Name} | Order created : {DateandTime.ToString()}";
 
-        }*/
+        }
         
        
     }

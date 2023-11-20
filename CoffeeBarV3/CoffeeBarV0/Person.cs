@@ -61,7 +61,7 @@ namespace CoffeeBarV3
         public Person (String Name)
         {
             this.Name = Name;
-            mBalance = 10.0m;
+            mBalance = 0;
             mLastItem = null;
         }
 

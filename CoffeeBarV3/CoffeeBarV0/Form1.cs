@@ -20,14 +20,18 @@ namespace CoffeeBarV3
        // Person[] mPeople = new Person[5];
        //int mCurrentPersonIndex = 0;
 
-        List<Item> mItems = new List<Item>();
+        List<Item> mItems = new List<Item>()
+        {new Item("Tea", 0.5m), new Item("Coffee",0.60m, 10) };
         Item mCurrentItem;
 
-        List<Person> mPersons = new List<Person>();
-        Person mCurrentPerson;
+        List<Person> mPersons = new List<Person>()
+        {new Person ("Dave", 12.0m), new Person("Hannah", 20.0m) };
 
-        List<Order> mOrders = new List<Order>();
-        Order mCurrentOrder;
+         List<Order> mOrders = new List<Order>();
+
+        //Current objects
+        Person mCurrentPerson;
+        //Order mCurrentOrder;
 
         #region UI Initialisation
         /// <summary>
@@ -45,56 +49,13 @@ namespace CoffeeBarV3
         /// <param name="e">Event Arguments passed</param>
         private void Form1_Load_1(object sender, EventArgs e)
         {
-            Item newDrink;
-            newDrink = new Item("Tea", 0.5m);
-            mItems.Add(newDrink);
-            newDrink = new Item("Coffee", 0.60m, 10);
-            mItems.Add(newDrink);
-            foreach (Item i in mItems)
-            {
-                uiItemsCombo.Items.Add(i.Name);
-            }
+
+            PopulateCustomerComboBox();
+            PopulateItemsComboBox();
+
             uiItemsCombo.SelectedIndex = 0;
-            mCurrentItem = mItems[0];
             ShowCurrentItem();
-
-
-            Person newPerson;
-            newPerson = new Person("Dave", 12.0m);
-            //mDave = new Person("Dave", 12.0m);
-            mPersons.Add(newPerson);
-            // mHannan = new Person("Hannan", 20.0m);
-            newPerson = new Person("Hannah", 20.0m);
-            mPersons.Add(newPerson);
-
-
-
-            //mPeople[0] = mDave;
-             //mPersons[0] = mDave;
-             //mPersons[1] = mHannan;
-           // mCurrentPerson;
-           /* for (int personLoop = 0; personLoop < mCurrentPerson; personLoop++)
-            {
-                uiCustomerCombo.Items.Add(mPersons[personLoop].Name);
-            }
-            uiCustomerCombo.SelectedIndex = 0;
-           // mCurrentPerson = mDave;
-            mCurrentPerson = mPersons[0];
-           */
-
-            foreach (Person  i in mPersons)
-            {
-                uiCustomerCombo.Items.Add(i.Name);
-            }
-            uiCustomerCombo.SelectedIndex = 0;
-            mCurrentPerson = mPersons[0];
-            ShowCurrentPerson() ;
-
-
-
-            Order newOrder;
-
-            newOrder = new Order("Dave", 12.0m);
+           
             
         }
         #endregion
@@ -136,6 +97,10 @@ namespace CoffeeBarV3
             if( ! mCurrentPerson.BuyItem(mCurrentItem))
             {
                 MessageBox.Show("Insufficient Balance to Buy this and/or no more available stock");
+            }
+            else
+            {
+                mOrders.Add(new Order(mCurrentItem, mCurrentPerson));
             }
             ShowCurrentPerson();
             ShowCurrentItem();
@@ -181,6 +146,25 @@ namespace CoffeeBarV3
 
         }
 
+        public void PopulateItemsComboBox()
+        {
+            uiItemsCombo.Items.Clear();
+            foreach ( Item item in mItems )
+            {
+                uiItemsCombo.Items.Add( item.Name );
+            }
+        }
+
+        public void PopulateCustomerComboBox()
+        {
+            uiCustomerCombo.Items.Clear();
+            foreach (Person i in mPersons)
+            {
+                uiCustomerCombo.Items.Add(i.Name);
+            }
+
+        }
+
         /// <summary>
         /// Method to show the price of the item selected
         /// </summary>
@@ -190,5 +174,30 @@ namespace CoffeeBarV3
                 " (" + mCurrentItem.StockLevel.ToString() + ")";
         }
         #endregion
+
+        private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+
+        private void uiDiplayOrdersbutton_Click(object sender, EventArgs e)
+        {
+            uiDisplayOrdersTextBox.Clear();
+
+            foreach (Order order in mOrders)
+            {
+                uiDisplayOrdersTextBox.AppendText((order.OrderDescription() + Environment.NewLine));
+            }
+        }
+
+        private void uiDisplayOrdersTextBox_TextChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void uiAddItemButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
